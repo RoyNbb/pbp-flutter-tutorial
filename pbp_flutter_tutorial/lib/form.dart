@@ -1,4 +1,5 @@
 import 'package:pbp_flutter_tutorial/main.dart';
+import 'package:pbp_flutter_tutorial/page/to_do_page.dart';
 import 'package:flutter/material.dart';
 
 class MyFormPage extends StatefulWidget {
@@ -24,7 +25,7 @@ class _MyFormPageState extends State<MyFormPage> {
     Widget build(BuildContext context) {
         return Scaffold(
             appBar: AppBar(
-                title: Text('Form'),
+                title: const Text('Form'),
             ),
             // Menambahkan drawer menu
             drawer: Drawer(
@@ -51,8 +52,18 @@ class _MyFormPageState extends State<MyFormPage> {
                                 );
                             },
                         ),
+                        ListTile(
+                            title: const Text('To Do'),
+                            onTap: () {
+                                // Route menu ke halaman to do
+                                Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => const ToDoPage()),
+                                );
+                            },
+                        ),
                     ],
-                ),
+                  ),
                 ),
 
             body: Form(
@@ -238,6 +249,7 @@ class _MyFormPageState extends State<MyFormPage> {
                                                                         child: Column(
                                                                             children:[
                                                                                 const Text('Informasi Data'),
+                                                                                SizedBox(height: 10),
                                                                                 Text('User dengan nama ' + _namaLengkap + ' telah dibuat')
                                                                             ],
                                                                         ),
